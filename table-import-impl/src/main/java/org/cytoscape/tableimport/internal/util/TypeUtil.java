@@ -46,11 +46,14 @@ import static org.cytoscape.tableimport.internal.util.SourceColumnSemantic.TARGE
 import static org.cytoscape.tableimport.internal.util.SourceColumnSemantic.TARGET_ATTR;
 import static org.cytoscape.tableimport.internal.util.SourceColumnSemantic.TAXON;
 
+import java.text.NumberFormat;
+import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -544,7 +547,12 @@ public final class TypeUtil {
 			try {
 				Double.parseDouble(val);
 			} catch (NumberFormatException e) {
-				return false;
+				try {
+					parseDouble(val);
+					return true;
+				}catch(NumberFormatException e2) {
+					return false;
+				}
 			}
 			
 			// Also check if it ends with 'f' or 'd' (if so, it should be a String!)
@@ -553,6 +561,20 @@ public final class TypeUtil {
 		}
 		
 		return false;
+	}
+	
+	public static double parseDouble(String val) {
+		NumberFormat nf = NumberFormat.getInstance(Locale.getDefault());
+		
+		ParsePosition pp = new ParsePosition(0);
+		Number n = nf.parse(val, pp);
+		if (n == null) {
+			throw new NumberFormatException();
+		}
+		if (pp.getErrorIndex() == -1 && pp.getIndex() == val.length()) {
+			return n.doubleValue();
+		}
+		throw new NumberFormatException();
 	}
 
 	/**

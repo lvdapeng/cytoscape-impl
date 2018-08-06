@@ -36,6 +36,7 @@ import org.cytoscape.equations.Equation;
 import org.cytoscape.equations.EquationCompiler;
 import org.cytoscape.service.util.CyServiceRegistrar;
 import org.cytoscape.tableimport.internal.util.AttributeDataType;
+import org.cytoscape.tableimport.internal.util.TypeUtil;
 
 public abstract class AbstractLineParser {
 
@@ -56,7 +57,7 @@ public abstract class AbstractLineParser {
 					case TYPE_BOOLEAN:  return Boolean.valueOf(s.trim());
 					case TYPE_INTEGER:  return Integer.valueOf(s.trim());
 					case TYPE_LONG:     return Long.valueOf(s.trim());
-					case TYPE_FLOATING: return Double.valueOf(s.trim());
+					case TYPE_FLOATING: return TypeUtil.parseDouble(s.trim());
 					case TYPE_STRING:   return s.trim();
 	
 					case TYPE_BOOLEAN_LIST:
@@ -95,7 +96,7 @@ public abstract class AbstractLineParser {
 				else if (type == TYPE_LONG_LIST)
 					list.add(Long.valueOf(listItem.trim()));
 				else if (type == TYPE_FLOATING_LIST)
-					list.add(new Double(listItem.trim()));
+					list.add(TypeUtil.parseDouble(listItem.trim()));
 				else // TYPE_STRING or unknown
 					list.add(listItem.trim());				
 			} catch (NumberFormatException e) {

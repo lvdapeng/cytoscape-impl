@@ -35,6 +35,7 @@ import org.cytoscape.model.CyTable;
 import org.cytoscape.service.util.CyServiceRegistrar;
 import org.cytoscape.tableimport.internal.util.AttributeDataType;
 import org.cytoscape.tableimport.internal.util.SourceColumnSemantic;
+import org.cytoscape.tableimport.internal.util.TypeUtil;
 
 /**
  * Take a line of data, analyze it, and map to CyAttributes.
@@ -70,7 +71,7 @@ public class AttributeLineParser extends AbstractLineParser {
 				primaryKey = Long.valueOf(parts[mapping.getKeyIndex()].trim());
 				break;
 			case TYPE_FLOATING:
-				primaryKey = Double.valueOf(parts[mapping.getKeyIndex()].trim());
+				primaryKey = TypeUtil.parseDouble(parts[mapping.getKeyIndex()].trim());
 				break;
 			default:
 				primaryKey = parts[mapping.getKeyIndex()].trim();

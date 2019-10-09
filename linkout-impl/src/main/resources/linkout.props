@@ -18,11 +18,11 @@ nodelinkouturl.Sequences\ and\ Proteins.Entrez\ Protein=http\://www.ncbi.nlm.nih
 nodelinkouturl.Publications.Pubmed=http\://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd\=Search&db\=PubMed&term\=%ID%&doptcmdl\=Abstract
 nodelinkouturl.Publications.OMIM=http\://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd\=Search&db\=omim&term\=%ID%&doptcmdl\=Synopsis
 
-nodelinkouturl.Model\ Organism\ DB.MGI\ (mouse)=http://www.informatics.jax.org/javawi2/servlet/WIFetch?page=searchTool&query=%ID%&selectedQuery=Genes+and+Markers
+nodelinkouturl.Model\ Organism\ DB.MGI\ (mouse)=http://www.informatics.jax.org/searchtool/Search.do?query=%ID%+&submit=Quick%0D%0ASearch
 nodelinkouturl.Model\ Organism\ DB.WormBase\ (worm)=http://www.wormbase.org/db/gene/gene?name=%ID%
 nodelinkouturl.Model\ Organism\ DB.SGD\ (yeast)=https://www.yeastgenome.org/search?q=%ID%&is_quick=true
-nodelinkouturl.Model\ Organism\ DB.FlyBase\ (fly)=http://flybase.org/cgi-bin/quicksearch_solr.cgi?context=%ID%&tab=basic_tab&view=sum
-nodelinkouturl.Model\ Organism\ DB.HGNC\ (human)=http://www.genenames.org/data/hgnc_data.php?hgnc_id=%ID%
+nodelinkouturl.Model\ Organism\ DB.FlyBase\ (fly)=http://flybase.org/search/%ID%
+nodelinkouturl.Model\ Organism\ DB.HGNC\ (human)=https://www.genenames.org/tools/search/#!/all?query=%ID%
 
 #Ontology
 nodelinkouturl.Ontology.Gene\ Ontology\ (QuickGO\ by\ ID)=https://www.ebi.ac.uk/QuickGO/search/GO:%ID%
@@ -38,7 +38,7 @@ nodelinkouturl.Structure\ Databases.NCBI\ Structure=http://www.ncbi.nlm.nih.gov/
 
 
 #Pathway databases
-nodelinkouturl.Pathway\ Databases.Reactome=http://www.reactome.org/cgi-bin/search2?OPERATOR=ALL&SPECIES=ALL&QUERY=%ID%
+nodelinkouturl.Pathway\ Databases.Reactome=https://reactome.org/content/query?q=%ID%&species=Homo+sapiens&species=Entries+without+species&cluster=true
 nodelinkouturl.Pathway\ Databases.Wikipathways=http://www.wikipathways.org//index.php?query=%ID%&title=Special%3ASearchPathways&doSearch=1&sa=Search
 nodelinkouturl.Pathway\ Databases.KEGG\ Pathways=http://www.kegg.jp/kegg-bin/search_pathway_text?map=map&keyword=%ID%&mode=1&viewImage=true
 nodelinkouturl.Pathway\ Databases.Pathway\ Commons=http://apps.pathwaycommons.org/search?type=Pathway&q=%ID%
